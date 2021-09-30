@@ -1,0 +1,13 @@
+<div>
+    <h4 class="d-flex justify-content-between align-items-center mb-3 mt-5">
+      <span class="text-primary mt-4">Actores</span>
+    </h4>
+    <ul class="list-group mb-2" *ngFor="let actor of actores" (click)="paisClick(actor)" >
+      <li class="list-group-item d-flex justify-content-between align-items-center lh-sm py-2">
+        <div>
+          <h6 class="my-0">{{actor.nombre}} {{actor.apellido}}</h6>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

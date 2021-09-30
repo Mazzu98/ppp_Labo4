@@ -1,0 +1,63 @@
+<div class="container ">
+    <div class="row g-5 mt-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <app-tabla-paises (event)="getPaisEvent($event)" [paises]="paises"></app-tabla-paises>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Alta Autor</h4>
+        <form [formGroup]="form" (ngSubmit)="altaActor()" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-12">
+              <label for="firstName" class="form-label">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder=""
+                value=""
+                required
+              />
+              <small class="text-danger" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.errors?.required" >Nombre requerido</small>
+            </div>
+    
+            <div class="col-sm-12">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input
+                formControlName="apellido"
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder=""
+                value=""
+                required
+              />
+              <small class="text-danger" *ngIf="form.get('apellido')?.touched && form.get('apellido')?.errors?.required">Apellido requerido</small>
+            </div>
+
+            <div class="col-sm-12">
+                <label for="lastName" class="form-label">Pais</label>
+                <input
+                formControlName="pais"
+                type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                  readonly
+                  name="pais"
+                />
+                <small class="text-danger" *ngIf="form.get('pais')?.touched && form.get('pais')?.errors?.required">Pais requerido</small>
+              </div>
+            </div>
+
+            <div class="col-12 mt-5">
+              <div class="row justify-content-center ">
+                <input type="submit" [disabled]="form.invalid" class="btn btn-primary w-50" value="Enviar">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

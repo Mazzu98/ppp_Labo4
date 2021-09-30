@@ -1,0 +1,103 @@
+<div class="container ">
+    <div class="row g-5 mt-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <app-tabla-actor [actores]="actores" (event)="getActorEvent($event)" ></app-tabla-actor>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Alta Actor</h4>
+        <form [formGroup]="form" (ngSubmit)="altaPelicula()" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-12">
+              <label for="firstName" class="form-label">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder=""
+                value=""
+                required
+              />
+              <small class="text-danger" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.errors?.required" >Nombre requerido</small>
+            </div>
+    
+            <div class="col-sm-12">
+              <label for="lastName" class="form-label">Fecha de estreno</label>
+              <input
+                formControlName="fecha_de_estreno"
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder=""
+                value=""
+                required
+              />
+              <small class="text-danger" *ngIf="form.get('fecha_de_estreno')?.touched && form.get('fecha_de_estreno')?.errors?.required">Fecha requerida</small>
+            </div>
+
+            <div class="col-sm-12">
+                <label for="lastName" class="form-label">Tipo</label>
+                <select class="form-control" formControlName="tipo">
+                    <option value="" disabled>selecciona</option>
+                    <option value="amor">amor</option>
+                    <option value="terror">terror</option>
+                    <option value="comedia">comedia</option>
+                    <option value="otros">otros</option>
+                </select>
+                <small class="text-danger" *ngIf="form.get('tipo')?.touched && form.get('tipo')?.errors?.required">Tipo requerido</small>
+              </div>
+
+              <div class="col-sm-12">
+                <label for="lastName" class="form-label">Cantidad de publico</label>
+                <input
+                  formControlName="cantidad_de_publico"
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <small class="text-danger" *ngIf="form.get('cantidad_de_publico')?.touched && form.get('cantidad_de_publico')?.errors?.required">Cantidad de publico requerida</small>
+              </div>
+
+            <div class="col-sm-12">
+                <label for="lastName" class="form-label">actor</label>
+                <input
+                formControlName="actor"
+                type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                  readonly
+                  name="actor"
+                />
+                <small class="text-danger" *ngIf="form.get('actor')?.touched && form.get('actor')?.errors?.required">Actor requerido</small>
+              </div>
+            </div>
+
+            <div class="col-sm-12 mt-3">
+                <label for="lastName" class="form-label">Foto</label>
+                <input
+                  formControlName="foto_de_la_pelicula"
+                  type="file"
+                  class="form-control"
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <small class="text-danger" *ngIf="form.get('foto_de_la_pelicula')?.touched && form.get('foto_de_la_pelicula')?.errors?.required">Imagen requerida</small>
+              </div>
+
+            <div class="col-12 mt-5">
+              <div class="row justify-content-center ">
+                <input type="submit" [disabled]="form.invalid" class="btn btn-primary w-50" value="Enviar">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

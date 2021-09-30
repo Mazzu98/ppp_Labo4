@@ -1,0 +1,24 @@
+<div>
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">fecha de estreno</th>
+            <th scope="col">cantidad de público</th>
+            <th scope="col">Foto</th>
+          </tr>
+        </thead>
+        <tbody  >
+          <tr (click)="selectedEvent(pelicula)" *ngFor="let pelicula of peliculas"  >
+            <th scope="row">{{pelicula.id}}</th>
+            <td>{{pelicula.nombre}}</td>
+            <td>{{pelicula.tipo}}</td>
+            <td>{{pelicula.fecha_de_estreno}}</td>
+            <td>{{pelicula.cantidad_de_publico}}</td>
+            <td><img [src]="pelicula.foto_de_la_pelicula" width="50px" height="50px" alt=""></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
